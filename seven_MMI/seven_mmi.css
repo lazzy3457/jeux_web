@@ -55,3 +55,35 @@ p {
     position: relative;
     object-fit: cover;
 }
+
+button {
+    position: relative;
+}
+
+    #btn1 {
+        bottom:10em;
+    }
+
+    #btn2 {
+        bottom:10em;
+    }
+
+    #btn3 {
+        bottom:10em;
+    }
+
+    #btn4 {
+        bottom:10em;
+    }
+
+    #btn5 {
+        bottom:10em;
+    }
+
+    #btn6 {
+        bottom:10em;
+    }
+
+    #btn7 {
+        bottom:10em;
+    }
