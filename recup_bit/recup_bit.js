@@ -7,8 +7,8 @@ class Ordinateur {
     constructor (name) {
         this.score = 0;
         this.vie = 3;
-        this.name = name;
-        this.position_x = 200;
+        this.name = name; // nom du panier (joueur)
+        this.position_x = div_conteneur_jeu.clientWidth / 2; // mise au centre du panier
         this.position_y = 500; // pas tres utile normalement
         this.size = 100; // en pixels
         this.affichage =  document.createElement("img");
@@ -17,26 +17,26 @@ class Ordinateur {
     }
 
     perdreVie (perte) {
-        this.vie -= perte;
+        this.vie -= perte; // perde x point de vie
     }
 
     AjoutScore (points) {
-        this.score += points;
+        this.score += points; // mise ajour score
     }
 
     updateAffichage (mousse_x) {
-        this.position_x = mousse_x - (this.size / 2);
-        this.affichage.style.left = this.position_x + "px";
+        this.position_x = mousse_x - (this.size / 2); // le mileu de l'image est au dessus de la souris
+        this.affichage.style.left = this.position_x + "px"; // mise ajour affichage
 
     }
 
     initialisationAffichage () {
-        this.affichage.style.width = this.size + "px";
-        this.affichage.style.position = "absolute";
-        this.affichage.style.left = this.position_x + "px";
-        this.affichage.style.top = this.position_y + "px";
-        this.affichage.src = "poulet.jpg";
-        div_conteneur_jeu.appendChild(this.affichage);
+        this.affichage.style.width = this.size + "px"; // taille de l'image
+        this.affichage.style.position = "absolute"; // mise en position absolute pour facilité le mouvement
+        this.affichage.style.left = this.position_x + "px"; // positionement de l'image sur l'axe x
+        this.affichage.style.top = this.position_y + "px"; // positionement de l'image sur l'axe y
+        this.affichage.src = "poulet.jpg"; // image est ...
+        div_conteneur_jeu.appendChild(this.affichage); // insertion de l'image (panier) a l'affichage
     }
 
 }  
@@ -50,15 +50,16 @@ document.addEventListener('mousemove', (e) => {
 
 class Bit {
 
-    static liste_bits = [];
+    static liste_bits = []; // finalement inutile actuellement
 
     constructor () {
-        this.position_x = nombreAleatoire(div_conteneur_jeu.clientWidth);
-        this.position_y = 0;
-        Bit.liste_bits.push(this);
+        this.position_x = nombreAleatoire(div_conteneur_jeu.clientWidth);  // fait apparaitre un bit dans une zone aleatoire de l'ecran  sur l'axe x
+        this.position_y = 0;  // positionnement en haut de l'affichage
+        Bit.liste_bits.push(this); 
         this.size = 30;
         this.bit = Math.round(Math.random());
         this.time = 500; // 0.5s
+        this.move = 10;
 
         this.affichage = document.createElement("p");
         this.initialisationAffichage();
@@ -79,11 +80,12 @@ class Bit {
         this.affichage.style.fontSize = this.size + "px";
         this.affichage.style.color = "green";
         div_conteneur_jeu.appendChild(this.affichage);
-        console.log("je suis creer", this)
+        console.log("je suis creer", this) // juste pour les verif
 
+        // fait bouger le bit de this.move toutes les this.time seconde
         setInterval(() => {
-            this.updateAffichage(10); 
-            console.log('je me suis deplacer de ', 10)
+            this.updateAffichage(this.move); 
+            console.log('je me suis deplacer de ', this.move)
         }, this.time);
     }
 
