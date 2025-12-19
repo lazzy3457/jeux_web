@@ -41,28 +41,11 @@ class Ordinateur {
 
 }  
 
-const ordinateur = new Ordinateur("C moi");
-// let pc_affichage =  document.createElement("img");
-// pc_affichage.src = "poulet.jpg"; 
-// div_conteneur_jeu.appendChild(pc_affichage);
-
-// pc_affichage.style.width = ordinateur.size + "px"
-// pc_affichage.style.top = ordinateur.position_y + "px";
-// pc_affichage.style.left = ordinateur.position_x + "px";
-
-// pc_affichage.style.position = "absolute";
+const ordinateur = new Ordinateur("C moi"); // creation du panier
 
 // mise a jout des coordonée de la souris
 document.addEventListener('mousemove', (e) => {
-    // ordinateur.updateAffichage(e.clientX);
     ordinateur.updateAffichage(e.clientX); 
-    // console.log(ordinateur.position_x);
-    // ordinateur.position_x = e.clientX; // Position X de la souris dans la fenêtre
-    // pc_affichage.style.left = ordinateur.position_x + "px";
-    // const y = e.clientY; // Position Y de la souris dans la fenêtre
-    
-    
-    // console.log(`Souris en X: ${x}, Y: ${y}`);
 });
 
 class Bit {
@@ -75,6 +58,7 @@ class Bit {
         Bit.liste_bits.push(this);
         this.size = 30;
         this.bit = Math.round(Math.random());
+        this.time = 500; // 0.5s
 
         this.affichage = document.createElement("p");
         this.initialisationAffichage();
@@ -96,13 +80,14 @@ class Bit {
         this.affichage.style.color = "green";
         div_conteneur_jeu.appendChild(this.affichage);
         console.log("je suis creer", this)
+
+        setInterval(() => {
+            this.updateAffichage(10); 
+            console.log('je me suis deplacer de ', 10)
+        }, this.time);
     }
 
 }
-
-
-
-let nombre = 255;
 
 const first_bit = new Bit();
 
@@ -121,18 +106,26 @@ function nombreAleatoire(nb) {
 }
 
 
-let interval = 500; // 0.3s
-console.log(Bit.liste_bits);
-setInterval(() => {
-    if (nombreAleatoire(1000) <= 200) {
-        let new_bit = new Bit();
-    }
-    Bit.liste_bits.forEach(bit_element => {
-        bit_element.updateAffichage(10); 
-        console.log('je me suis deplacer de ', 10)
-    });
-}, interval);
+// let interval = 500; // 0.3s
+// console.log(Bit.liste_bits);
+// setInterval(() => {
+//     if (nombreAleatoire(1000) <= 200) {
+//         let new_bit = new Bit();
+//     }
+//     Bit.liste_bits.forEach(bit_element => {
+//         bit_element.updateAffichage(10); 
+//         console.log('je me suis deplacer de ', 10)
+//     });
+// }, interval);
 
 console.log(toBinnaire(255));
 console.log();
+
+// TIMEUR JEU
+let interval = 500; // 0.5s
+setInterval (() => {
+    if (nombreAleatoire(1000) <= 400) {
+        let new_bit = new Bit();
+    }
+}, interval)
 
