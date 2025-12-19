@@ -8,15 +8,15 @@ tu est un robot qui a besoin de bit 1 pour rester en vie car celle si font passe
 
 ### Ordinateur
 
-* **perdreVie** 
+* ***perdreVie*** 
 retire le nombre de vie indiquer
-* **ajoutScore**
+* ***ajoutScore***
 ajoute au score le nombre indiquer
-* **updateAffichage**
+* ***updateAffichage***
 prend en parametre un nombre (les coordonnée de la souris en theorie)
 il modifie l'atribut position_x avec le nombre entre
 et met ajour l'affichage
-* **initialisationAffichage**
+* ***initialisationAffichage***
 cree le robot (panier) dans le dom afin de l'afficher
 
 ### Bit

@@ -5,4 +5,4 @@ des jeux web
  [clic moi](./recup_bit/README.md)
 
 ## Seven MMI
-[clic moi](./seven_MMI/README.md)
+ [clic moi](./seven_MMI/README.md)

@@ -35,10 +35,9 @@ class Ordinateur {
         this.affichage.style.position = "absolute"; // mise en position absolute pour facilité le mouvement
         this.affichage.style.left = this.position_x + "px"; // positionement de l'image sur l'axe x
         this.affichage.style.top = this.position_y + "px"; // positionement de l'image sur l'axe y
-        this.affichage.src = "poulet.jpg"; // image est ...
+        this.affichage.src = "poulet.jpg"; // image represantant le panier
         div_conteneur_jeu.appendChild(this.affichage); // insertion de l'image (panier) a l'affichage
     }
-
 }  
 
 const ordinateur = new Ordinateur("C moi"); // creation du panier
