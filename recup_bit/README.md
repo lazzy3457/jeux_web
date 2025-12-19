@@ -21,3 +21,13 @@ cree le robot (panier) dans le dom afin de l'afficher
 
 ### Bit
 
+### Reste a faire 
+* coder les colisions ( bas de l'ecran et robot (panier) ) 
+* faire supprimer les bit lorsque elles subbisent une collision
+* ajouter le score si collision avec robot (panier) 
+* faire afficher le score en binnaire en hexadecimale et en decimale
+* faire la gestion des vie et leur affichage
+
+### **idée d'amelioration** 
+* faire un tableau des score des autre joueur avec leur nom
+* voir pour connecter avec les compte visiteur
