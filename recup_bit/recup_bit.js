@@ -104,6 +104,7 @@ function toBinnaire (score) {
 }
 
 function nombreAleatoire(nb) {
+    // retourne un nombre aleatoire compris entre 0 et nb
     return Math.round(Math.random() * (nb + 1))
 }
 
