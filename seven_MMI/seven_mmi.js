@@ -23,8 +23,17 @@ liste_id.forEach(id => {
 //MISE EN PLACE DU TIMER
 let p_timer = document.getElementById("timer");
 let timer = 0;
+let timer_affichage = Math.floor(timer*10)/10;
 let interval = 100;
-setInterval(() => {
+const clock = setInterval(() => {
     timer += 0.1;
-    p_timer.textContent = Math.floor(timer*10)/10;
+    timer_affichage = Math.floor(timer*10)/10;
+    p_timer.textContent = timer_affichage;
+    if (liste_id.length == liste_trouver.length) {
+        clearInterval(clock)
+        console.log("Victoire, vous avez trouvé les ", liste_id.length, "erreurs");
+        console.log("Dans un temps de ", timer_affichage, "secondes");
+    }
 }, interval)
+
+
