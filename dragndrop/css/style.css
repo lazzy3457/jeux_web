@@ -39,6 +39,12 @@ header {
   opacity: .8;
 }
 
+/* Carte sélectionnée (mobile) */
+.card.selected {
+  outline: 3px solid #4a90e2;
+  background: #eaf2ff;
+}
+
 /* ZONES */
 .zones {
   display: flex;
@@ -71,19 +77,18 @@ header {
   background: #f8d7da;
 }
 
-/* CARTES DANS ZONES */
+/* Cartes dans les zones */
 .zone .card {
   margin: 6px 0;
   cursor: default;
 }
 
-/* SCORE */
+/* FOOTER */
 footer {
   padding: 15px;
   font-weight: bold;
   font-size: 18px;
 }
-
 
 /* ANIMATION ERREUR */
 @keyframes shake {
@@ -92,4 +97,44 @@ footer {
   50% { transform: translateX(5px); }
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
+}
+
+/* ========================= */
+/* 📱 RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 900px) {
+  .zone {
+    width: 45%;
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 22px;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .zones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .zone {
+    width: 95%;
+    min-height: 200px;
+  }
+
+  footer {
+    font-size: 16px;
+  }
 }
