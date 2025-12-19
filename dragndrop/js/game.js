@@ -3,6 +3,10 @@ const zonesContainer = document.getElementById("zones");
 const timerDisplay = document.getElementById("timer");
 
 let draggedCard = null;
+let selectedCard = null;
+
+/* Détection mobile */
+const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
 
 /* ⏱️ CHRONOMÈTRE */
 let startTime = null;
@@ -40,11 +44,21 @@ categories.forEach(cat => {
 
   const title = document.createElement("h2");
   title.textContent = cat.label;
-
   zone.appendChild(title);
 
   zone.addEventListener("dragover", e => e.preventDefault());
   zone.addEventListener("drop", () => dropCard(zone));
+
+  /* 📱 Mobile : clic pour déposer */
+  zone.addEventListener("click", () => {
+    if (!isTouchDevice || !selectedCard) return;
+
+    draggedCard = selectedCard;
+    selectedCard.classList.remove("selected");
+    selectedCard = null;
+
+    dropCard(zone);
+  });
 
   zonesContainer.appendChild(zone);
 });
@@ -59,10 +73,27 @@ cardsData.forEach(cardData => {
   card.draggable = true;
   card.dataset.category = cardData.category;
 
+  /* Desktop */
   card.addEventListener("dragstart", () => {
     draggedCard = card;
 
-    // ⏱️ Démarrage du chrono AU PREMIER DRAG
+    if (!timerStarted) {
+      timerStarted = true;
+      startTimer();
+    }
+  });
+
+  /* Mobile */
+  card.addEventListener("click", () => {
+    if (!isTouchDevice) return;
+
+    if (selectedCard) {
+      selectedCard.classList.remove("selected");
+    }
+
+    selectedCard = card;
+    card.classList.add("selected");
+
     if (!timerStarted) {
       timerStarted = true;
       startTimer();
@@ -72,7 +103,7 @@ cardsData.forEach(cardData => {
   cardsContainer.appendChild(card);
 });
 
-/* 🎯 Dépôt d'une carte */
+/* 🎯 Dépôt */
 function dropCard(zone) {
   if (!draggedCard) return;
 
