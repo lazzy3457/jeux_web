@@ -30,7 +30,7 @@ class Game {
     update () {
         this.ordinateur.update(mousse_x);
         let alleatoire = nombreAleatoire(1000);
-        if (alleatoire > 900) {
+        if (alleatoire > 990) {
         this.list_bits.push(new Bit(this));
             
         }
