@@ -1,6 +1,7 @@
 
 let div_conteneur_jeu = document.getElementById("conteneur_jeu"); // zone de jeux
 
+
 // Est le panier qui recup les bits qui tombes
 class Ordinateur {
 
