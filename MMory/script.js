@@ -16,16 +16,18 @@ function boot(){
 
     // Création des tuiles
     for (var i = 0; i <= 8; i++) {
-        console.log("i = ".i);
+        console.log("i = " + i);
 
         // Création d'une tuile
-        testMsg = document.createTextNode(i);
+        let testMsg = document.createTextNode(i);
         tab.appendChild(testMsg);
 
     };
 };
 
-// Création d'une tuile
+boot();
+
+// Création d'une tuile 
 function creationTuile() {
     //Lorem ipsum
 }
